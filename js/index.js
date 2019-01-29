@@ -6,9 +6,19 @@ window.onload = function() {
   const heroImg = document.querySelector(".intro img");
   const body = document.querySelector("body");
   const mapPic = document.querySelector(".img-content img");
+  const destination = document.querySelector(".content-destination");
 
   //Global variables
   let redMode = false;
+
+  //Event Listeners
+
+  destination.addEventListener("mouseenter", e => {
+    TweenMax.to(e.currentTarget, 1, { ease: Bounce.easeOut, x: -500 });
+  });
+  destination.addEventListener("mouseout", e => {
+    TweenMax.to(e.currentTarget, 1, { ease: Bounce.easeOut, x: 0 });
+  });
 
   window.addEventListener("scroll", () => {
     if (window.scrollY > 0) {
