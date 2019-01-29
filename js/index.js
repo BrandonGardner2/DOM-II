@@ -25,17 +25,23 @@ window.onload = function() {
     }
   });
 
+  nav.addEventListener("click", () => {
+    alert("You didn't click a link in the header!");
+  });
+
   navBtns.forEach(btn =>
     btn.addEventListener("click", e => {
+      e.stopPropagation();
       e.preventDefault();
       alert(
-        "We canceled the page refresh because the link does not work dummy"
+        "We canceled the page refresh because the link does not work dummy.. Also propogation was stopped too."
       );
     })
   );
 
   mapPic.addEventListener("auxclick", e => {
-    TweenMax.to(e.currentTarget, 3, { rotation: "360deg" });
+    TweenMax.to(e.currentTarget, 0, { rotation: 0 });
+    TweenMax.to(e.currentTarget, 3, { rotation: 360 });
   });
 
   signUp.forEach(btn =>
