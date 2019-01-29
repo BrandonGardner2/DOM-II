@@ -1,8 +1,13 @@
 window.onload = function() {
+  //Element definitions
   const nav = document.querySelector(".main-navigation");
+  const navBtns = document.querySelectorAll(".nav-link");
   const signUp = document.querySelectorAll(".btn");
   const heroImg = document.querySelector(".intro img");
   const body = document.querySelector("body");
+  const mapPic = document.querySelector(".img-content img");
+
+  //Global variables
   let redMode = false;
 
   window.addEventListener("scroll", () => {
@@ -12,6 +17,25 @@ window.onload = function() {
     if (window.scrollY == 0) {
       nav.style.backgroundColor = "white";
     }
+  });
+
+  window.addEventListener("keydown", e => {
+    if (e.keyCode === 69) {
+      alert("You found my secret button");
+    }
+  });
+
+  navBtns.forEach(btn =>
+    btn.addEventListener("click", e => {
+      e.preventDefault();
+      alert(
+        "We canceled the page refresh because the link does not work dummy"
+      );
+    })
+  );
+
+  mapPic.addEventListener("auxclick", e => {
+    TweenMax.to(e.currentTarget, 3, { rotation: "360deg" });
   });
 
   signUp.forEach(btn =>
